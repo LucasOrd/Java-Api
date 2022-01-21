@@ -56,6 +56,14 @@ public class MessageControllerTest {
     }
 
     @Test
+    public void getMessageString() throws Exception {
+        var result = mockMvc.perform(get("/coder-house/mensajes/example"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andReturn();
+    }
+
+    @Test
     public void getMessageById() throws Exception {
         mockMvc.perform(get("/coder-house/mensajes/{id}", 1))
                 .andDo(print())

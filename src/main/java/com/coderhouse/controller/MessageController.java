@@ -23,19 +23,19 @@ public class MessageController {
 
     @GetMapping("/mensajes/example")
     public String getMensajesString() {
-        logger.info("GET Request recibido string");
+        logger.info("GET Request recibido string mensajes example");
         return "Ejemplo de respuesta";
     }
 
     @GetMapping("/mensajes/all")
     public List<Message> getMensajesAll() {
-        logger.info("GET Request recibido string");
+        logger.info("GET Request recibido string mensajes all");
         return dataMensajes();
     }
 
     @GetMapping("/mensajes")
     public List<Message> getMensajesByDescription(@RequestParam String description) {
-        logger.info("GET obtener mensajes que sean iguales a la descripción");
+        logger.info("GET obtener mensajes que sean iguales a la descripción mensajes");
         var msjFiltered = dataMensajes().stream()
                 .filter(mensajes -> mensajes.getDescription().equalsIgnoreCase(description));
         return msjFiltered.collect(Collectors.toList());
