@@ -45,9 +45,7 @@ public class MessageController {
     public Message getMensajeById(@PathVariable Long id) throws ApiRestException {
         logger.info("GET obtener mensaje por el id");
 
-        if (id == 0) {
-            throw new ApiRestException("El identificador del mensaje debe ser mayor a 0");
-        }
+
         var msjFiltered = dataMensajes().stream()
                 .filter(mensajes -> Objects.equals(mensajes.getId(), id));
         return msjFiltered.findFirst().orElse(new Message(0L, "No existe el mensaje"));

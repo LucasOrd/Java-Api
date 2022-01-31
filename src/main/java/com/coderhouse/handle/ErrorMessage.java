@@ -1,17 +1,15 @@
 package com.coderhouse.handle;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor(staticName = "of")
 public class ErrorMessage {
-    private String error;
-
-    public ErrorMessage(String error) {
-        this.error = error;
-    }
-
-    public void setError(String error) {
-        this.error = error;
-    }
-
-    public String getError() {
-        return error;
-    }
+    private String code;
+    private String message;
 }

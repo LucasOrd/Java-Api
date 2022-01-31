@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
 public class MessageErrorHandle {
-
     Logger logger = LogManager.getLogger(MessageErrorHandle.class);
 
     @ResponseBody
@@ -18,7 +17,6 @@ public class MessageErrorHandle {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     ErrorMessage messageErrorHandle(ApiRestException ex) {
         logger.error(ex);
-        return new ErrorMessage(ex.getMessage());
+        return ErrorMessage.of(ex.getCode(), ex.getMessage());
     }
-
 }
